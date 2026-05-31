@@ -78,7 +78,7 @@
 
 /* Name Section */
 .name-section { margin-bottom: 1.25rem; }
-.name-fields { display: flex; gap: 8px; }
+.name-fields { display: flex; flex-direction: column; gap: 8px; }
 .name-fields input { flex: 1; font-size: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
 
 /* ---------------------------------------------------
@@ -415,6 +415,18 @@ window.addEventListener('DOMContentLoaded', () => {
   updateNames();
   updateBallVisibility();
 });
+
+// Preload all racket and grip images in the background
+window.addEventListener('load', () => {
+  palette.forEach(c => {
+    const imgR = new Image();
+    imgR.src = `images/TennisRacket-${c.name}-04.png`;
+    
+    const imgG = new Image();
+    imgG.src = `images/TennisRacket-${c.name}-05.png`;
+  });
+});
+
 </script>
 
 </body>
